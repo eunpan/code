@@ -1,0 +1,478 @@
+@charset "utf-8";
+
+/* 헤더전체 */
+#d-day{
+    float:right;
+    color:white;
+    left:100px;
+}
+#header {
+    position: relative;
+    height: 100px;
+    background-color:gray;
+}
+#header .inner {
+    width: 1200px;
+    height: 100%;
+    margin:0 auto;
+    background-color: #ddd;
+}
+#header .inner .logo_wrap {
+    float: left;
+    width: 200px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header.sticky {position: fixed; padding: 7px 0; background: #FFF;
+    box-shadow: 0 2px 2px rgba(0,0,0 .3)}
+#header.sticky nav ul li a { color : #c7b299;}
+#header .inner .logo_wrap h1{
+    float: left;
+    width: 50%;
+    height: 50%;
+    background-color: gray;
+}
+#wrapper{
+    display:flex;
+    flex-direction:column;
+}
+#wrapper_membertype {
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+
+/* 로고영역 */
+#header .inner .logo_wrap a {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+/* 메뉴영역 */
+
+#header .nav {
+    float: left;
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+
+}
+#header .nav > ul {
+    width: 100%;
+    height: 50%;
+}
+/* 위에 나눠주는거 */
+#header .nav > ul > li {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 100%;
+    background-color: #ddd;
+    border-left:1px solid #000;
+    box-sizing: border-box;
+} 
+/*글자 구분*/
+#header .nav > ul > li > a {
+    display: block;
+    height: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header .nav > ul > li:hover .sub_menu {
+    display: block;
+}
+.page-header {
+    background-color: rgb(255, 255, 255);
+    height:70px;  width: 100%;  min-width: 960px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); 
+	position:absolute; /*아래 dummy 텍스트와의 공백을 없애기 위해*/
+}
+
+.page-header.sticky { position: fixed; top: 0; }
+ /* 스크롤양이 많아져 sticky class가 붙었을때의 위치 */
+
+.page-header > .inner { 
+    margin: auto; width: 960px;  }
+
+.no-boxshadow .page-header {
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+.site-logo {
+    float: left;
+    margin-left: -20px;
+}
+
+/* Primary nav */
+.primary-nav {
+    float: left;
+    line-height: 65px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+   
+    
+}
+.primary-nav li {
+    float: left;
+    background-color:blanchedalmond;
+}
+.primary-nav a {
+    display: block;
+    padding: 0 1.36em;
+
+}
+.primary-nav a:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+#inner2 ul li.on a { color:green; font-weight:bold;}
+
+
+
+
+
+
+.sub_menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    padding: 20px 0;
+    z-index: 10;
+}
+
+.sub_menu li a {
+    display: block;
+    padding: 10px;
+}
+.sub_menu li a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* 로그인 */
+.login {
+    position: absolute;
+    left:50%;
+    bottom: 10px;
+    z-index: 1;
+    margin-left: 650px;
+    width:100px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.membership {
+    position: absolute;
+    left:50%;
+    bottom: 10px;
+    z-index: 1;
+    margin-left: 710px;
+    width:100px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.shop {
+    position: absolute;
+    left:50%;
+    bottom: 10px;
+    z-index: 1;
+    margin-left: 780px;
+    width:100px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.icons{
+    display:flex;
+    width:1280px;
+    height:502px;
+    margin:auto;
+}
+.main_text0{
+    width:100%;
+    flex:1;
+    background: #f1f2f3;
+    
+}
+.main_text0 > h1{
+    text-align: center;
+    padding-top:116px;
+}
+.main_text0 > .contents1{
+    text-align: center;
+}
+.icons > li{
+    flex:1;
+    background: whitesmoke;
+    height:302px;
+    text-align:center;
+    margin-top: 49px;
+}
+.icons > li:not(:last-child){
+    margin-right:20px;
+}
+.contents1{
+    font-size:20px;
+    font-weight:lighter;
+}
+/* 멤버타입의 회원가입 */
+.contents2{
+    font-size:22px;
+    font-weight:100;
+    color:blue;
+    font-weight:bold;
+}
+.register{
+    width:100px;
+    height:30px;
+    background:#2F7AF4;
+    color:#FFF;
+    margin:25px auto;
+    line-height:30px;
+    text-align: center;
+    
+}
+
+
+
+
+/* 내용 */
+
+
+#container_board {
+    width: 1200px;
+    height: 100%;
+    margin:0 auto;
+}
+
+
+.contents_board {
+    float: right;
+    width: 950px;
+    padding: 100px 0;
+}
+
+.side {
+    float: left;
+    width: 180px;
+    margin-right: 20px;
+    padding: 100px 0;
+
+}
+.side ul li {
+    margin-bottom: 10px;
+}
+.side ul li a {
+    display: block;
+    height: 100px;
+    border: 1px solid #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+#hash_tag {
+    text-align: center;
+    border:1px solid #ddd;
+    padding:30px;
+    margin-bottom: 30px;
+}
+#hash_tag a {
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+}
+
+	/* 브라우저 마진과 패딩 리셋 */
+	* {margin:0;padding:0;}
+
+	/* INPUT 가리기 */
+	.section [id*="slide"] {display:none;}
+	
+	/* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+	.section .slidewrap {max-width:2000px;margin:0 auto;overflow:hidden;position:relative;}
+	.section .slidelist {white-space:nowrap;font-size:0;}
+	.section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+	.section .slidelist > li > a {display:block;position:relative;}
+
+	/* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+	.section .slide-control {position:absolute;top:0;left:0;z-index:10;width:100%;height:100%;}
+	.section .slide-control label {position:absolute;z-index:1;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+	.section .slide-control .left {left:30px;background:url('./img/left.png') center center / 100% no-repeat;}
+	.section .slide-control .right {right:30px;background:url('./img/right.png') center center / 100% no-repeat;}
+	.section .slide-control [class*="control"] {display:none;}
+
+	/* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+	.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+    .section [id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+	.section [id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+	.section [id="slide06"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+	
+	/*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
+	.section [id="slide01"]:checked ~ .slidewrap .control01 {display:block;}
+	.section [id="slide02"]:checked ~ .slidewrap .control02 {display:block;}
+	.section [id="slide03"]:checked ~ .slidewrap .control03 {display:block;}
+    .section [id="slide04"]:checked ~ .slidewrap .control04 {display:block;}
+	.section [id="slide05"]:checked ~ .slidewrap .control05 {display:block;}
+	.section [id="slide06"]:checked ~ .slidewrap .control06 {display:block;}
+
+
+.ma img{
+    width : 100%;
+    height: 550px;
+    position: relative;
+}
+
+.ma2 {
+    position: relative;
+    top:-66px;
+    width:1280px;
+    background: #fff;
+    display: flex;
+    background: white;
+    margin:auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.ma2 > li {
+    flex: 1;
+    height:132px;
+}
+.ma2 > li > div {
+
+    text-align: center;
+    margin-top: 37px;
+    height: 57px;
+    
+}
+/* 마지막 자식만 예외로 하게끔(구분선 넣어줄 때)*/
+.ma2 > li:not(:last-child) > div {
+    border-right:1px solid #E1E1E1;
+}
+.fontfreelec {
+    font-size: 24px;
+}
+
+.main_text{
+    width:100%;
+    flex:1;
+    background: #f1f2f3;
+    margin-top:-134px;
+}
+.main_text > h1{
+    text-align: center;
+    padding-top:116px;
+}
+.main_text > .contents1{
+    text-align: center;
+}
+
+.look{
+    width:100px;
+    height:30px;
+    background:#2F7AF4;
+    color:#FFF;
+    margin:25px auto;
+    line-height:30px;
+    text-align: center;
+
+    
+}
+
+.main_text1 {
+    width:100%;
+    height:659px;
+}
+
+.main_text1 > h1 {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.main_text1 > .contents1 {
+    text-align: center;
+}
+
+.service {
+    width: 1280px;
+    display: flex;
+    margin:49px auto;
+    height: 427px;
+    background: #f1f1f1;
+}
+
+.service > .contents1 {
+    padding:20px;
+}
+
+.service > .contents1 > h2 {
+    margin-bottom: 27px;
+}
+/* 푸터 */
+#footer {
+    clear: both;
+    height: 100px;
+    background-color: #808080;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* 예전푸터
+#footer {
+    clear: both;
+    padding:30px 0;
+    background-color: #808080;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:-100px;
+
+
+}
+ */
+
+ 
+
+
+
