@@ -28,7 +28,6 @@
         .popup:target + dim {opacity: 1; z-index: 2;}
         .dim { position: fixed; left: 0; top: 0; z-index: -1; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
         opacity: 0; transition: all 0.5s;}
-
     </style>
 </head>
 
@@ -44,7 +43,7 @@
 
             <div class="inner">
                 <div class="logo_wrap">
-                    <h1><a href="./studycafe.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
+                    <h1><a href="./main.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
                     </h1>
                 </div>
                 <nav class="nav">
@@ -58,7 +57,7 @@
                             </ul>
                         </li>
 
-                        <li><a href="./test_answer.jsp">모의고사 해설지 다운</a>
+                        <li><a href="./test_answer.jsp">커뮤니티</a>
                                                  
                         </li>
                         <li>

@@ -28,4 +28,26 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/update.jsp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/update.jsp</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/view.jsp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/view.jsp</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/write.jsp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/%EA%B8%B0%EB%9F%AC%EA%B8%B0/write.jsp</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/write2.jsp</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/write2.jsp</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

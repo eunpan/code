@@ -1,8 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="bbs.BbsDAO" %>
+<%@ page import="bbs.Bbs" %>
+<%@ page import="java.util.ArrayList" %>
 <!doctype html>
 <html lang="ko">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width-device-width", initial-scale="1">
+<link rel="stylesheet" href="./css/default.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <head>
     <meta charset="utf-8">
     <title>Study Cafe</title>
@@ -11,40 +17,47 @@
 </head>
 
 <body>
+<%
+		String userID = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+		int pageNumber = 1;
+		if (request.getParameter("pageNumber") != null) {
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+%>
     <section id="wrapper">
         <header id="header">
-            <a id="d-day">ºˆ¥… O¿œ ≥≤æ“Ω¿¥œ¥Ÿ.</a>
+            <a id="d-day">ÏàòÎä• OÏùº ÎÇ®ÏïòÏäµÎãàÎã§.</a>
 
-            <!-- ∑Œ±◊¿Œ -->
-            <div class="login"><a href="#">∑Œ±◊¿Œ</a></div>
-            <div class="membership"><a href="./membertype.html">»∏ø¯∞°¿‘</a></div>
-            <div class="shop"><a href="#">¿ÂπŸ±∏¥œ</a></div>
+            
 
             <div class="inner">
                 <div class="logo_wrap">
-                    <h1><a href="./studycafe.html">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
+                    <h1><a href="./main.html">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
                     </h1>
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">º±ª˝¥‘</a>
+                        <li><a href="#">ÏÑ†ÏÉùÎãò</a>
                             <ul class="sub_menu">
-                                <li><a href="./teacher.html">OOO º±ª˝¥‘</a></li>
-                                <li><a href="#">º±ª˝¥‘_∏ﬁ¥∫2</a></li>
-                                <li><a href="#">º±ª˝¥‘_∏ﬁ¥∫3</a></li>
-                                <li><a href="#">º±ª˝¥‘_∏ﬁ¥∫4</a></li>
+                                <li><a href="./teacher.html">OOO ÏÑ†ÏÉùÎãò</a></li>
+                                <li><a href="#">ÏÑ†ÏÉùÎãò_Î©îÎâ¥2</a></li>
+                                <li><a href="#">ÏÑ†ÏÉùÎãò_Î©îÎâ¥3</a></li>
+                                <li><a href="#">ÏÑ†ÏÉùÎãò_Î©îÎâ¥4</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#">∏¿«∞ÌªÁ «ÿº≥¡ˆ ¥ŸøÓ</a>
+                        <li><a href="#">Ïª§ÎÆ§ÎãàÌã∞</a>
                                                  
                         </li>
                         <li>
-                            <a href="./free_lecture.html">π´∑·∆Ø∞≠</a>
+                            <a href="./free_lecture.html">Î¨¥Î£åÌäπÍ∞ï</a>
                                                  
 
                         </li>
-                        <li><a href="./information.html">¿‘Ω√ ¡§∫∏</a>
+                        <li><a href="./information.html">ÏûÖÏãú Ï†ïÎ≥¥</a>
                                                 
                         
                         </li>
@@ -52,28 +65,64 @@
                 </nav>
             </div>
         </header>
-        
+        <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+			aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>	
+			<span class="icon-bar"></span>		
+		</button>
+		
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+	 	<%
+	 		if(userID ==null) {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Ï†ëÏÜçÌïòÍ∏∞<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="login.jsp">Î°úÍ∑∏Ïù∏</a></li>
+					<li><a href="join.jsp">ÌöåÏõêÍ∞ÄÏûÖ</a></li>
+				</ul>
+			</li>
+		</ul>
+		<%
+	 		} else {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">ÌöåÏõêÍ¥ÄÎ¶¨<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="logoutAction.jsp">Î°úÍ∑∏ÏïÑÏõÉ</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	 	<%
+	 		}
+		%>
+	</div>
         <section id="container_board">
 
-            <aside class="side">
-                <ul>
-                    <li><a href="./test_answer.html">3ø˘ ∏¿«∞ÌªÁ</a></li>
-                    <li><a href="./test_answer6.html">6ø˘ ∏¿«∞ÌªÁ</a></li>
-                    <li><a href="./test_answer9.html">9ø˘ ∏¿«∞ÌªÁ</a></li>
-                    <li><a href="./test_answer_real.html">¥Î«–ºˆ«–¥…∑¬Ω√«Ë</a></li>
-                </ul>
-            </aside>
+            
             <div class="contents_board">
                 <div class="board_title">
-                    <strong>∏¿«∞ÌªÁ «ÿº≥¡ˆ ∞‘Ω√∆«</strong>
-                    <p>3ø˘ ∏¿«∞ÌªÁ¿‘¥œ¥Ÿ.</p>
+                    <strong>Ïª§ÎÆ§ÎãàÌã∞</strong>
+                    <p>ÏûêÏú†Î°≠Í≤å Í∏ÄÏùÑ Ïç®Ï£ºÏÑ∏Ïöî.</p>
                 </div>
-                <div class="total_number">√— ∞‘Ω√π∞ : <strong>100</strong>∞≥</div>
+                <div class="total_number">Ï¥ù Í≤åÏãúÎ¨º : <strong>100</strong>Í∞ú</div>
                 <form action="">
                     
                         
 
-                        <!-- ∏ÆΩ∫∆Æ -->
+                        <!-- Î¶¨Ïä§Ìä∏ -->
                         <div class="board_list_ty1">
                             <table summary="">
                                 
@@ -85,84 +134,26 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">NO</th>
-                                        <th scope="col">¡¶∏Ò</th>
-                                        <th scope="co1">¿€º∫¿⁄</th>
-                                        <th scope="col">µÓ∑œ¿œ</th>
-                                        <th scope="col">¡∂»∏</th>
-                                        
+                                        <th scope="col">Ï†úÎ™©</th>
+                                        <th scope="col">ÏûëÏÑ±Ïûê</th>
+                                        <th scope="col">Îì±Î°ùÏùº</th>    
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="c_num">10</td>
-                                        <td class="c_info"><a href="./te_view.jsp">≈◊Ω∫∆Æ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">9</td>
-                                        <td class="c_info"><a href="#">2018≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">8</td>
-                                        <td class="c_info"><a href="#">2017≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">7</td>
-                                        <td class="c_info"><a href="#">2016≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">6</td>
-                                        <td class="c_info"><a href="#">2015≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">5</td>
-                                        <td class="c_info"><a href="#">2014≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">4</td>
-                                        <td class="c_info"><a href="#">2013≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">3</td>
-                                        <td class="c_info"><a href="#">2012≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">2</td>
-                                        <td class="c_info"><a href="#">2011≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c_num">1</td>
-                                        <td class="c_info"><a href="#">2010≥‚ 3ø˘ ∏¿«∞ÌªÁ «ÿº≥¡ˆ¿‘¥œ¥Ÿ.</a></td>
-                                        <td class="c_date">∞¸∏Æ¿⁄</td>
-                                        <td class="c_date">2021.05.31</td>
-                                        <td class="c_date">0</td>
-                                    </tr>
+			                   <%
+									BbsDAO bbsDAO = new BbsDAO();
+									ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+									for(int i = 0; i < list.size(); i++) {
+								%>
+								<tr>
+									<td><%= list.get(i).getBbsID() %></td>
+									<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>"><%= list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
+									<td><%= list.get(i).getUserID() %></td>
+									<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "Ïãú " + list.get(i).getBbsDate().substring(14, 16) + "Î∂Ñ "%></td>
+								</tr>
+								<%
+									}
+								%>
                                 </tbody>
                             </table>
                         </div>
@@ -170,31 +161,24 @@
                         <!-- button -->
                         <div class="btn_set btn_right">
                             <div class="btn btn_st_1">
-                                <a href="./te_write.html">±€æ≤±‚</a>
+                                <a href="./te_write.html">Í∏ÄÏì∞Í∏∞</a>
                             </div>
                         </div>
 
                         <!-- paginate -->
                         <div class="paginate">
-                            <a href="#" class="pre page"><img src="./img/btn_page_prev.gif" alt="√≥¿Ω∆‰¿Ã¡ˆ"></a>
-                            <a href="#" class="pre"><img src="./img/btn_prev.gif" alt="¿Ã¿¸"></a>
-                            <a href="#"><span>1</span></a>
-                            <a href="#"><span>2</span></a>
-                            <a href="#"><span>3</span></a>
-                            <strong><span>4</span></strong>
-                            <a href="#"><span>5</span></a>
-                            <a href="#"><span>6</span></a>
-                            <a href="#"><span>7</span></a>
-                            <a href="#"><span>8</span></a>
-                            <a href="#"><span>9</span></a>
-                            <a href="#"><span>10</span></a>
-                            <a href="#" class="next"><img src="./img/btn_next.gif" alt="¥Ÿ¿Ω"></a>
-                            <a href="#" class="next page"><img src="./img/btn_page_next.gif" alt="∏∂¡ˆ∏∑∆‰¿Ã¡ˆ"></a>
+                            <a href="#" class="pre page"><img src="./img/btn_page_prev.gif" alt="Ï≤òÏùåÌéòÏù¥ÏßÄ"></a>
+                            <a href="#" class="pre"><img src="./img/btn_prev.gif" alt="Ïù¥Ï†Ñ"></a>
+                            
+                            <strong><span>1</span></strong>
+                           
+                            <a href="#" class="next"><img src="./img/btn_next.gif" alt="Îã§Ïùå"></a>
+                            <a href="#" class="next page"><img src="./img/btn_page_next.gif" alt="ÎßàÏßÄÎßâÌéòÏù¥ÏßÄ"></a>
                         </div>
-
-                        <!-- «ÿΩ√≈¬±◊ -->
+<a href="write.jsp" class="btn btn-primary pull-right">Í∏ÄÏì∞Í∏∞</a>
+                        <!-- Ìï¥ÏãúÌÉúÍ∑∏ -->
                         <div id="hash_tag">
-                            <a href="#">ø≠∞¯«œººø‰!</a>
+                            <a href="#">Ïó¥Í≥µÌïòÏÑ∏Ïöî!</a>
                             
                         </div>
 
@@ -207,10 +191,11 @@
         <!-- footer -->
         
     </section>
-
+	
         <footer id="footer">
             Study Cafe
         </footer>
-    
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
 </body>
 </html>

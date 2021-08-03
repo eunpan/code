@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,7 @@
 
             <div class="inner">
                 <div class="logo_wrap">
-                    <h1><a href="./studycafe.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
+                    <h1><a href="./main.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
                     </h1>
                 </div>
                 <nav class="nav">
@@ -30,7 +31,7 @@
                             </ul>
                         </li>
 
-                        <li><a href="./test_answer.jsp">모의고사 해설지 다운</a>
+                        <li><a href="./test_answer.jsp">커뮤니티</a>
                                                  
                         </li>
                         <li>

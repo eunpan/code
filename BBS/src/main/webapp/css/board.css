@@ -172,9 +172,10 @@ a {
 }
 
 .bt_wrap {
-    margin-top: 30px;
+    
     text-align: center;
     font-size: 0;
+    
 }
 
 .bt_wrap a {
@@ -185,6 +186,7 @@ a {
     border: 1px solid #000;
     border-radius: 2px;
     font-size: 1.4rem;
+    bottom:-60px;
 }
 
 .bt_wrap a:first-child {

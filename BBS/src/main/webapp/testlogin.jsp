@@ -1,64 +1,84 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!doctype html>
+<html lang="ko">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width-device-width", initial-scale="1">
-<link rel="stylesheet" href="css/bootstrap.css">
-<title>JSP</title>
+    <meta charset="utf-8">
+    <title>Study Cafe</title>
+    <link rel="stylesheet" href="./css/default.css">
+
 </head>
+
 <body>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="main.jsp">JSP ê²Œì‹œíŒ ì›¹ ì‚¬ì´íŠ¸</a>	
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">ë©”ì¸</a>
-				<li><a href="bbs.jsp">ê²Œì‹œíŒ</a>
-			</ul>
-			
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
-						
-					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">ë¡œê·¸ì¸</a></li>
-						<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
-					</ul>
-				</li>
-			</ul>		
-		</div>
-	</nav>
-	
-	<div class="container">
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" action="loginAction.jsp">
-					<h3 style="text-align: center;">ë¡œê·¸ì¸ í™”ë©´</h3>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="ì•„ì´ë””" name="userID" maxlength="20">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" placeholder="íŒ¨ìŠ¤ì›Œë“œ" name="userPassword" maxlength="20">
-					</div>
-					<input type="submit" class="btn btn-primary form-control" value="ë¡œê·¸ì¸">
-				</form>
-			</div>
-		</div>
-		<div class="col-lg-4"></div>
-	</div>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+    <section id="wrapper">
+        <header id="header">
+            <a id="d-day">¼ö´É OÀÏ ³²¾Ò½À´Ï´Ù.</a>
+
+            <!-- ·Î±×ÀÎ -->
+            <div class="login"><a href="#">·Î±×ÀÎ</a></div>
+            <div class="membership"><a href="./membertype.jsp">È¸¿ø°¡ÀÔ</a></div>
+            <div class="shop"><a href="#">Àå¹Ù±¸´Ï</a></div>
+
+            <div class="inner">
+                <div class="logo_wrap">
+                    <h1><a href="./main.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
+                    </h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#">¼±»ý´Ô</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">¼±»ý´Ô_¸Þ´º1</a></li>
+                                <li><a href="#">¼±»ý´Ô_¸Þ´º2</a></li>
+                                <li><a href="#">¼±»ý´Ô_¸Þ´º3</a></li>
+                                <li><a href="#">¼±»ý´Ô_¸Þ´º4</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="./test_answer.jsp">Ä¿¹Â´ÏÆ¼</a>
+                                                  
+                        </li>
+                        <li>
+                            <a href="./free_lecture.jsp">¹«·áÆ¯°­</a>
+                                                 
+
+                        </li>
+                        <li><a href="./information.jsp">ÀÔ½Ã Á¤º¸</a>
+                                                   
+                        
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <fieldset>
+            <legend>±âº» Á¤º¸</legend>
+        <label for="id">¾ÆÀÌµð:</label> <input type="text" placeholder="¿µ¹®À¸·Î¸¸ ½áÁÖ¼¼¿ä" id="id"><br>
+        <label for="pw">ºñ¹Ð¹øÈ£:</label> <input type="password" id="pw"><br>
+        <label for="phonenumber">ÈÞ´ëÆù¹øÈ£:</label> <input type="text" id="pn"><br>
+        
+        ¼ºº°: <label for="male">³²ÀÚ</label> <input type="radio" name="gen" id="male"> <label for="fem">¿©ÀÚ</label> <input type="radio" name="gen" id="fem"> <br>
+    </fieldset>
+    <fieldset>
+        <legend>ºÎ°¡ Á¤º¸</legend>
+        Ãë¹Ì: ¿µÈ­ <input type="checkbox"> ¿îµ¿ <input type="checkbox"><br>
+        ÇÁ·ÎÇÊ »çÁø ¾÷·Îµå<input type="file"> <br>
+        »ç´ÂÁö¿ª<select>
+            <option>¼­¿ï</option>
+            <option>°­¿ø</option>
+            <option>°æ±â</option>
+            <option selected>Á¦ÁÖ</option>
+    
+        </select><br>
+        ÀÚ±â¼Ò°³: <textarea cols="30" rows="5"></textarea><br>
+    </fieldset>
+        
+        <div class="register">°¡ÀÔÇÏ±â</div>
+        <footer id="footer">
+            Study Cafe
+        </footer>
+    </section>
 </body>
 </html>

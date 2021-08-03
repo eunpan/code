@@ -30,7 +30,7 @@
                             </ul>
                         </li>
 
-                        <li><a href="./test_answer.jsp">모의고사 해설지 다운</a>
+                        <li><a href="./test_answer.jsp">커뮤니티</a>
                                                  
                         </li>
                         <li>
