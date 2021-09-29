@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-		location.href = 'studycafe.jsp';
+		location.href = 'main.jsp';
 	</script>
 </body>
 </html>

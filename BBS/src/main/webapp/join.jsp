@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width-device-width", initial-scale="1">
 <link rel="stylesheet" href="./css/default.css">
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 <title>Study Cafe</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
                     <ul>
                         <li><a href="#">선생님</a>
                             <ul class="sub_menu">
-                                <li><a href="#">선생님_메뉴1</a></li>
+                                <li><a href="./teacher.jsp">OOO 선생님</a></li>
                                 <li><a href="#">선생님_메뉴2</a></li>
                                 <li><a href="#">선생님_메뉴3</a></li>
                                 <li><a href="#">선생님_메뉴4</a></li>

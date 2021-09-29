@@ -1,50 +1,56 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!doctype html>
-<html lang="ko">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width-device-width", initial-scale="1">
+<link rel="stylesheet" href="./css/default.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <title>Study Cafe</title>
-    <link rel="stylesheet" href="./css/default.css">
+   
 
 </head>
 
 <body>
+<%
+String userID = null;
+if(session.getAttribute("userID") != null) {
+	 userID = (String) session.getAttribute("userID");
+}
+%>
     <section id="wrapper">
         <header id="header">
-            <a id="d-day">¼ö´É OÀÏ ³²¾Ò½À´Ï´Ù.</a>
+            <a id="d-day">ìˆ˜ëŠ¥ Oì¼ ë‚¨ì•˜ìŠµë‹ˆë‹¤.</a>
 
-            <!-- ·Î±×ÀÎ -->
-            <div class="login"><a href="#">·Î±×ÀÎ</a></div>
-            <div class="membership"><a href="./membertype.jsp">È¸¿ø°¡ÀÔ</a></div>
-            <div class="shop"><a href="#">Àå¹Ù±¸´Ï</a></div>
+            
 
             <div class="inner">
                 <div class="logo_wrap">
-                    <h1><a href="./studycafe.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
+                    <h1><a href="./main.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
                     </h1>
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">¼±»ý´Ô</a>
+                        <li><a href="#">ì„ ìƒë‹˜</a>
                             <ul class="sub_menu">
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º1</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º2</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º3</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º4</a></li>
+                                <li><a href="./teacher.jsp">OOO ì„ ìƒë‹˜</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´2</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´3</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´4</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="./test_answer.jsp">Ä¿¹Â´ÏÆ¼</a>
+                        <li><a href="./test_answer.jsp">ì»¤ë®¤ë‹ˆí‹°</a>
                                                   
                         </li>
                         <li>
-                            <a href="./free_lecture.jsp">¹«·áÆ¯°­</a>
+                            <a href="./free_lecture.jsp">ë¬´ë£ŒíŠ¹ê°•</a>
                                                    
 
                         </li>
-                        <li><a href="./information.jsp">ÀÔ½Ã Á¤º¸</a>
+                        <li><a href="./information.jsp">ìž…ì‹œ ì •ë³´</a>
                                                    
                         
                         </li>
@@ -53,6 +59,50 @@
             </div>
         </header>
         
+        <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+			aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>	
+			<span class="icon-bar"></span>		
+		</button>
+		
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+	 	<%
+	 		if(userID ==null) {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="login.jsp">ë¡œê·¸ì¸</a></li>
+					<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+				</ul>
+			</li>
+		</ul>
+		<%
+	 		} else {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">íšŒì›ê´€ë¦¬<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="logoutAction.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	 	<%
+	 		}
+		%>
+	</div>
         <div class="ma">
                        
           <img src="./img/free_lec.PNG" alt="">               
@@ -62,26 +112,26 @@
         <ul class="ma2">
             <li>
                 <div>
-                    <div class="contents1">´©Àû ¼ö°­»ý</div>
-                    <div class="fontfreelec">OOOO¸í µ¹ÆÄ!</div>
+                    <div class="contents1">ëˆ„ì  ìˆ˜ê°•ìƒ</div>
+                    <div class="fontfreelec">OOOOëª… ëŒíŒŒ!</div>
                 </div>               
             </li>
             <li>
                 <div>
-                    <div class="contents1">½Å±Ô°­ÁÂ ¸ðµÎ ÁØºñ¿Ï·á</div>
-                    <div class="fontfreelec">ÇÑ ´Þ ¾È¿¡ È®½ÇÇÏ°Ô ³¡³»ÀÚ</div>
+                    <div class="contents1">ì‹ ê·œê°•ì¢Œ ëª¨ë‘ ì¤€ë¹„ì™„ë£Œ</div>
+                    <div class="fontfreelec">í•œ ë‹¬ ì•ˆì— í™•ì‹¤í•˜ê²Œ ëë‚´ìž</div>
                 </div>
             </li>
             <li>
                 <div>
-                    <div class="contents1">±âÃÊºÎÅÍ È®½ÇÇÏ°Ô</div>
-                    <div class="fontfreelec">´©±¸³ª ½±°Ô µéÀ» ¼ö ÀÖ´Â °­ÀÇ</div>
+                    <div class="contents1">ê¸°ì´ˆë¶€í„° í™•ì‹¤í•˜ê²Œ</div>
+                    <div class="fontfreelec">ëˆ„êµ¬ë‚˜ ì‰½ê²Œ ë“¤ì„ ìˆ˜ ìžˆëŠ” ê°•ì˜</div>
                 </div>
             </li>
             <li>
                 <div>
-                    <div class="contents1">´ëÇÐ±³ ÀÔ½Ã´Â</div>
-                    <div class="fontfreelec">Study cafe¿¡¼­</div>
+                    <div class="contents1">ëŒ€í•™êµ ìž…ì‹œëŠ”</div>
+                    <div class="fontfreelec">Study cafeì—ì„œ</div>
                 </div>
             </li>
 
@@ -91,21 +141,21 @@
         </ul>
         <div class="main_text">
             <h1>LECTURE</h1>
-            <div class="contents1">Study Cafe ÃÖ°íÀÇ ¼±»ý´ÔµéÀ» ¸¸³ªº¸¼¼¿ä!</div>
+            <div class="contents1">Study Cafe ìµœê³ ì˜ ì„ ìƒë‹˜ë“¤ì„ ë§Œë‚˜ë³´ì„¸ìš”!</div>
 
             <ul class="icons">
                 <li>
                     <div class="icons_image">
                         <img src="./img/teacher1.png">
                     </div>
-                    <div class="look"><a href="./testlecture.jsp">OT ¿µ»ó</a></div>
+                    <div class="look"><a href="./testlecture.jsp">OT ì˜ìƒ</a></div>
                     
                 </li>
                 <li>
                     <div class="icons_image">
                         <img src="./img/teacher2.png">
                     </div>
-                    <div class="look"><a href="./testlecture.jsp">OT ¿µ»ó</a></div>
+                    <div class="look"><a href="./testlecture.jsp">OT ì˜ìƒ</a></div>
                 </li>
 
                             
@@ -114,20 +164,20 @@
         </div>
         <div class="main_text1">
             <h1>SERVICE</h1>
-            <div class="contents1">È¥ÀÚ¼­ ÀÔ½Ã¸¦ ÁØºñÇÏ´Â ¼öÇè»ýµé¿¡°Ô</div>
+            <div class="contents1">í˜¼ìžì„œ ìž…ì‹œë¥¼ ì¤€ë¹„í•˜ëŠ” ìˆ˜í—˜ìƒë“¤ì—ê²Œ</div>
             <div class="service">
                 <div class="lec_photo">
                    <img src="./img/study.jpg">
                 </div>
 
                 <div class="contents1">
-                    <h2>È¥ÀÚ¼­´Â ¾î·Æ½À´Ï´Ù.</h2>
-                    Study cafeÀÇ Àü¹®°¡µé°ú ÇÔ²²ÇÏ¼¼¿ä
-                    <br> ÀúÈñ´Â ¼ö¸¹Àº Àü¹®°¡µéÀ» º¸À¯ÇÏ°í ÀÖ½À´Ï´Ù.
-                    <br> ÀÔ½Ã´Â È¥ÀÚ¼­´Â ¾î·ÆÀÝ¾Æ¿ä. °°ÀÌÇÏ¸é ÈÎ¾À ½¬¿ï °Å¿¡¿ä.
+                    <h2>í˜¼ìžì„œëŠ” ì–´ë µìŠµë‹ˆë‹¤.</h2>
+                    Study cafeì˜ ì „ë¬¸ê°€ë“¤ê³¼ í•¨ê»˜í•˜ì„¸ìš”
+                    <br> ì €í¬ëŠ” ìˆ˜ë§Žì€ ì „ë¬¸ê°€ë“¤ì„ ë³´ìœ í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
+                    <br> ìž…ì‹œëŠ” í˜¼ìžì„œëŠ” ì–´ë µìž–ì•„ìš”. ê°™ì´í•˜ë©´ í›¨ì”¬ ì‰¬ìš¸ ê±°ì—ìš”.
                     <br>
-                    <br> ³»½Å°ú ¼ö´ÉÀ» ÇÑ¹ø¿¡!
-                    <br> N¼ö»ý°úÀÇ °ÝÂ÷¸¦ ÁÙÀÌ´Â °¡Àå È®½ÇÇÑ ¹æ¹ý
+                    <br> ë‚´ì‹ ê³¼ ìˆ˜ëŠ¥ì„ í•œë²ˆì—!
+                    <br> Nìˆ˜ìƒê³¼ì˜ ê²©ì°¨ë¥¼ ì¤„ì´ëŠ” ê°€ìž¥ í™•ì‹¤í•œ ë°©ë²•
 
                 </div>
             </div>
@@ -137,5 +187,7 @@
             Study Cafe
         </footer>
     </section>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

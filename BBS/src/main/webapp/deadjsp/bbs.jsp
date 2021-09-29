@@ -37,7 +37,7 @@
                     <ul>
                         <li><a href="#">선생님</a>
                             <ul class="sub_menu">
-                                <li><a href="#">선생님_메뉴1</a></li>
+                                <li><a href="./teacher.jsp">OOO 선생님</a></li>
                                 <li><a href="#">선생님_메뉴2</a></li>
                                 <li><a href="#">선생님_메뉴3</a></li>
                                 <li><a href="#">선생님_메뉴4</a></li>

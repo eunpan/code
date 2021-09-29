@@ -1,24 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!doctype html>
-<html lang="ko">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Study Cafe</title>
-    <link rel="stylesheet" href="./css/default.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width-device-width", initial-scale="1">
+<link rel="stylesheet" href="./css/default.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
 
 </head>
 
 <body>
+<%
+String userID = null;
+if(session.getAttribute("userID") != null) {
+	 userID = (String) session.getAttribute("userID");
+}
+%>
     <section id="wrapper">
         <header id="header">
-            <a id="d-day">¼ö´É OÀÏ ³²¾Ò½À´Ï´Ù.</a>
+            <a id="d-day">ìˆ˜ëŠ¥ Oì¼ ë‚¨ì•˜ìŠµë‹ˆë‹¤.</a>
 
-            <!-- ·Î±×ÀÎ -->
-            <div class="login"><a href="#">·Î±×ÀÎ</a></div>
-            <div class="membership"><a href="./membertype.jsp">È¸¿ø°¡ÀÔ</a></div>
-            <div class="shop"><a href="#">Àå¹Ù±¸´Ï</a></div>
+            
 
             <div class="inner">
                 <div class="logo_wrap">
@@ -27,24 +32,24 @@
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">¼±»ý´Ô</a>
+                        <li><a href="#">ì„ ìƒë‹˜</a>
                             <ul class="sub_menu">
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º1</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º2</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º3</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º4</a></li>
+                                <li><a href="./teacher.jsp">OOO ì„ ìƒë‹˜</a></li>
+                                <!-- <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´2</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´3</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´4</a></li> -->
                             </ul>
                         </li>
 
-                        <li><a href="./test_answer.jsp">Ä¿¹Â´ÏÆ¼</a>
+                        <li><a href="./test_answer.jsp">ì»¤ë®¤ë‹ˆí‹°</a>
                                                  
                         </li>
                         <li>
-                            <a href="./free_lecture.jsp">¹«·áÆ¯°­</a>
+                            <a href="./free_lecture.jsp">ë¬´ë£ŒíŠ¹ê°•</a>
                                                     
 
                         </li>
-                        <li><a href="./information.jsp">ÀÔ½Ã Á¤º¸</a>
+                        <li><a href="./information.jsp">ìž…ì‹œ ì •ë³´</a>
                                                 
                         
                         </li>
@@ -52,9 +57,52 @@
                 </nav>
             </div>
         </header>
-        
+<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+			aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>	
+			<span class="icon-bar"></span>		
+		</button>
+		
+</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+	 	<%
+	 		if(userID ==null) {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="login.jsp">ë¡œê·¸ì¸</a></li>
+					<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+				</ul>
+			</li>
+		</ul>
+		<%
+	 		} else {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">íšŒì›ê´€ë¦¬<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="logoutAction.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	 	<%
+	 		}
+		%>
+	</div>
         <filedset>
-            <h1>¸Àº¸±â ¿µ»ó</h1>
+            <h1>ë§›ë³´ê¸° ì˜ìƒ</h1>
 
            
             <iframe src="https://player.vimeo.com/video/31300341" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -69,5 +117,7 @@
         iframe {margin:auto; display: block;}
         h1 {text-align: center;}
     </style>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

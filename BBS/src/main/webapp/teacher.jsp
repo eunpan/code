@@ -1,12 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!doctype html>
-<html lang="ko">
 
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width-device-width", initial-scale="1">
+<link rel="stylesheet" href="./css/default.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <title>Study Cafe</title>
-    <link rel="stylesheet" href="./css/default.css">
+
     <style>
         
         input[type="radio"] {display: none;}
@@ -32,14 +36,17 @@
 </head>
 
 <body>
+<%
+String userID = null;
+if(session.getAttribute("userID") != null) {
+	 userID = (String) session.getAttribute("userID");
+}
+%>
     <section id="wrapper">
         <header id="header">
-            <a id="d-day">¼ö´É OÀÏ ³²¾Ò½À´Ï´Ù.</a>
+            <a id="d-day">ìˆ˜ëŠ¥ Oì¼ ë‚¨ì•˜ìŠµë‹ˆë‹¤.</a>
 
-            <!-- ·Î±×ÀÎ -->
-            <div class="login"><a href="#">·Î±×ÀÎ</a></div>
-            <div class="membership"><a href="./membertype.jsp">È¸¿ø°¡ÀÔ</a></div>
-            <div class="shop"><a href="#">Àå¹Ù±¸´Ï</a></div>
+           
 
             <div class="inner">
                 <div class="logo_wrap">
@@ -48,24 +55,24 @@
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">¼±»ý´Ô</a>
+                        <li><a href="#">ì„ ìƒë‹˜</a>
                             <ul class="sub_menu">
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º1</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º2</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º3</a></li>
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º4</a></li>
+                                <li><a href="./teacher.jsp">OOO ì„ ìƒë‹˜</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´2</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´3</a></li>
+                                <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´4</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="./test_answer.jsp">Ä¿¹Â´ÏÆ¼</a>
+                        <li><a href="./test_answer.jsp">ì»¤ë®¤ë‹ˆí‹°</a>
                                                  
                         </li>
                         <li>
-                            <a href="./free_lecture.jsp">¹«·áÆ¯°­</a>
+                            <a href="./free_lecture.jsp">ë¬´ë£ŒíŠ¹ê°•</a>
                                                
 
                         </li>
-                        <li><a href="./information.jsp">ÀÔ½Ã Á¤º¸</a>
+                        <li><a href="./information.jsp">ìž…ì‹œ ì •ë³´</a>
                                                 
                         
                         </li>
@@ -73,61 +80,105 @@
                 </nav>
             </div>
         </header>
+<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+			aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>	
+			<span class="icon-bar"></span>		
+		</button>
+		
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+	 	<%
+	 		if(userID ==null) {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="login.jsp">ë¡œê·¸ì¸</a></li>
+					<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+				</ul>
+			</li>
+		</ul>
+		<%
+	 		} else {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">íšŒì›ê´€ë¦¬<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="logoutAction.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	 	<%
+	 		}
+		%>
+	</div>
         <div id="container">
             <div id="idx_top">
-                <img src="img/tea1.png" alt="¼±»ý´Ô">               
+                <img src="img/tea1.png" alt="ì„ ìƒë‹˜">               
             </div>
-            <a href="#pop1" class="btn">ÆË¾÷¿­±â</a>
+            <a href="#pop1" class="btn">íŒì—…ì—´ê¸°</a>
             <div class="popup" id="pop1">
-                <a href="#a">´Ý±â</a>
-                <div class="pop_content"><h1>¼±»ý´Ô ¾à·Â</h1><hr>
+                <a href="#a">ë‹«ê¸°</a>
+                <div class="pop_content"><h1>ì„ ìƒë‹˜ ì•½ë ¥</h1><hr>
                    <ul>
-                        <br><br><h2 style="color: royalblue; font-size: 20px;">ÇÐ·Â</h2>
-                        <br>* ÀÌÈ­¿©ÀÚ´ëÇÐ±³ ±³À°´ëÇÐ¿ø Áö¸®±³À°°ú
-                        <br>* ½ºÅÍµðÄ«Æä ±¹¾î¿µ¿ª
-                        <br>* Çö) ÇÏ³ªÅõ¾î ¿©Çà¼¼°èÁö¸® °­»ç
-                        <br>* Àü) EBS Áö¸®¿µ¿ª (2012 ~ 2014³â)
+                        <br><br><h2 style="color: royalblue; font-size: 20px;">í•™ë ¥</h2>
+                        <br>* ì´í™”ì—¬ìžëŒ€í•™êµ êµìœ¡ëŒ€í•™ì› ì§€ë¦¬êµìœ¡ê³¼
+                        <br>* ìŠ¤í„°ë””ì¹´íŽ˜ êµ­ì–´ì˜ì—­
+                        <br>* í˜„) í•˜ë‚˜íˆ¬ì–´ ì—¬í–‰ì„¸ê³„ì§€ë¦¬ ê°•ì‚¬
+                        <br>* ì „) EBS ì§€ë¦¬ì˜ì—­ (2012 ~ 2014ë…„)
                    </ul> 
                    <ul>
-	                    <br><br><h2 style="color: royalblue; font-size: 20px;">Àú¼­</h2>
-	                    <br>* EBS ¹®ÇÐ °³³ä¿Ï¼º
-	                    <br>* Power Training È­¹ý°ú ÀÛ¹® °³³ä¿Ï¼º
-	                    <br>* Personal Training ºñ¹®ÇÐ º¹½À±³Àç
-	                    <br>* Personal Training ¾ð¾î¿Í ¸ÅÃ¼ º¹½À±³Àç
+	                    <br><br><h2 style="color: royalblue; font-size: 20px;">ì €ì„œ</h2>
+	                    <br>* EBS ë¬¸í•™ ê°œë…ì™„ì„±
+	                    <br>* Power Training í™”ë²•ê³¼ ìž‘ë¬¸ ê°œë…ì™„ì„±
+	                    <br>* Personal Training ë¹„ë¬¸í•™ ë³µìŠµêµìž¬
+	                    <br>* Personal Training ì–¸ì–´ì™€ ë§¤ì²´ ë³µìŠµêµìž¬
                 	</ul> 
                     <ul>
-                        <br><br><h2 style="color: royalblue; font-size: 20px;">Ãâ°­ÇÐ¿ø</h2>
-                        <br>* ´ëÄ¡µ¿ ¿¹¼¶ÇÐ¿ø
-                        <br>* ´ëÄ¡µ¿ ¿ì¸²ÇÐ¿ø
-                        <br>* Ã»Æò ÇÑ»ù ³²ÇÐ»ý ±â¼÷ÇÐ¿ø
+                        <br><br><h2 style="color: royalblue; font-size: 20px;">ì¶œê°•í•™ì›</h2>
+                        <br>* ëŒ€ì¹˜ë™ ì˜ˆì„¬í•™ì›
+                        <br>* ëŒ€ì¹˜ë™ ìš°ë¦¼í•™ì›
+                        <br>* ì²­í‰ í•œìƒ˜ ë‚¨í•™ìƒ ê¸°ìˆ™í•™ì›
                     </ul> 
                 </div>
             </div>
             <div class="dim"></div>
-            <a href=""><img src="img/tea2.png" alt="¼±»ý´Ô"></a>
+            <a href=""><img src="img/tea2.png" alt="ì„ ìƒë‹˜"></a>
             <div id="idx_board_wrap">
                 <div>
                     <div class="idx_board">
                         <div class="title">
-                            <a href="#" class="name">°øÁö»çÇ×</a>
-                            <a href="#" class="more"><img src="img/more.png" alt="´õ º¸±â"></a>
+                            <a href="#" class="name">ê³µì§€ì‚¬í•­</a>
+                            <a href="#" class="more"><img src="img/more.PNG" alt="ë” ë³´ê¸°" style="width:50px;"></a>
                         </div>
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="#">¸ðÀÇ°í»ç¿¡ Å©°Ô °íÀüÇßÀ» ÇÐ»ýµé¿¡°Ô.</a>
+                                    <a href="#">ëª¨ì˜ê³ ì‚¬ì— í¬ê²Œ ê³ ì „í–ˆì„ í•™ìƒë“¤ì—ê²Œ.</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">[ÀÌº¥Æ®] ½ÅÇÑÁ¾½ÜÀÇ 6Æò ¼ö°­ÈÄ±â ÀÌº¥Æ®!!!</a>
+                                    <a href="#">[ì´ë²¤íŠ¸] ì‹ í•œì¢…ìŒ¤ì˜ 6í‰ ìˆ˜ê°•í›„ê¸° ì´ë²¤íŠ¸!!!</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">6¿ù ¸ðÆò ±¹¾î - µ¶¼­ ÃÑÆò ¹× ÇÐ½À¹æÇâ</a>
+                                    <a href="#">6ì›” ëª¨í‰ êµ­ì–´ - ë…ì„œ ì´í‰ ë° í•™ìŠµë°©í–¥</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">[EVENT] °æÁ¦ Áö¹® ±â.¾î.ÀÌ ³¡Àå³»±â ±³Àç »ç¸é °­ÁÂµµ ¹«·á!</a>
+                                    <a href="#">[EVENT] ê²½ì œ ì§€ë¬¸ ê¸°.ì–´.ì´ ëìž¥ë‚´ê¸° êµìž¬ ì‚¬ë©´ ê°•ì¢Œë„ ë¬´ë£Œ!</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 
@@ -136,25 +187,25 @@
                     </div>
                     <div class="idx_board">
                         <div class="title">
-                            <a href="#" class="name">¼ö°­ÈÄ±â</a>
-                            <a href="#" class="more"><img src="img/more.png" alt="´õ º¸±â"></a>
+                            <a href="#" class="name">ìˆ˜ê°•í›„ê¸°</a>
+                            <a href="#" class="more"><img src="img/more.PNG" alt="ë” ë³´ê¸°" style="width:50px;"></a>
                         </div>
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="#">Ç×»ó ³Ê¹« °¨»çµå¸³´Ï´Ù</a>
+                                    <a href="#">í•­ìƒ ë„ˆë¬´ ê°ì‚¬ë“œë¦½ë‹ˆë‹¤</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">¼ö°­ÈÄ±â</a>
+                                    <a href="#">ìˆ˜ê°•í›„ê¸°</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">°¡Àå Å« µµ¿òÀÌ µÈ ¼±»ý´Ô</a>
+                                    <a href="#">ê°€ìž¥ í° ë„ì›€ì´ ëœ ì„ ìƒë‹˜</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">±¹¾î°øºÎÀÇ ¹æÇâ¼ºÀ» ¾Ë·ÁÁÖ´Â ¸í°­ÀÇ!</a>
+                                    <a href="#">êµ­ì–´ê³µë¶€ì˜ ë°©í–¥ì„±ì„ ì•Œë ¤ì£¼ëŠ” ëª…ê°•ì˜!</a>
                                     <span>2021-09-21</span>
                                 </li>                               
                             </ul>
@@ -162,25 +213,25 @@
                     </div>
                     <div class="idx_board">
                         <div class="title">
-                            <a href="#" class="name">º£½ºÆ®°­ÁÂ</a>
-                            <a href="#" class="more"><img src="img/more.png" alt="´õ º¸±â"></a>
+                            <a href="#" class="name">ë² ìŠ¤íŠ¸ê°•ì¢Œ</a>
+                            <a href="#" class="more"><img src="img/more.PNG" alt="ë” ë³´ê¸°" style="width:50px;"></a>
                         </div>
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="#">2022 NEW µ¶¼­ [ÀÎ¹®(³í¸®ÇÐ) Áö¹®] ±â.¾î.ÀÌ ³¡Àå³»±â</a>
+                                    <a href="#">2022 NEW ë…ì„œ [ì¸ë¬¸(ë…¼ë¦¬í•™) ì§€ë¬¸] ê¸°.ì–´.ì´ ëìž¥ë‚´ê¸°</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">2022 NEW µ¶¼­ [°æÁ¦ Áö¹®] ±â.¾î.ÀÌ ³¡Àå³»±â</a>
+                                    <a href="#">2022 NEW ë…ì„œ [ê²½ì œ ì§€ë¬¸] ê¸°.ì–´.ì´ ëìž¥ë‚´ê¸°</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">2022 NEW EBS ¼ö´ÉÀÇ ½Ã°¢À¸·Î [¼öÆ¯ ¿î¹®Æí]</a>
+                                    <a href="#">2022 NEW EBS ìˆ˜ëŠ¥ì˜ ì‹œê°ìœ¼ë¡œ [ìˆ˜íŠ¹ ìš´ë¬¸íŽ¸]</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">2022 NEW [The Beginning] µ¶¼­, µ¶ÇÏ°Ô ±âÃâºÐ¼®ÀÇ ½ÃÀÛ</a>
+                                    <a href="#">2022 NEW [The Beginning] ë…ì„œ, ë…í•˜ê²Œ ê¸°ì¶œë¶„ì„ì˜ ì‹œìž‘</a>
                                     <span>2021-09-21</span>
                                 </li>
                                
@@ -189,25 +240,25 @@
                     </div>
                     <div class="idx_board">
                         <div class="title">
-                            <a href="#" class="name">ÀÚ·á½Ç</a>
-                            <a href="#" class="more"><img src="img/more.png" alt="´õ º¸±â"></a>
+                            <a href="#" class="name">ìžë£Œì‹¤</a>
+                            <a href="#" class="more"><img src="img/more.PNG" alt="ë” ë³´ê¸°" style="width:50px;"></a>
                         </div>
                         <div class="list">
                             <ul>
                                 <li>
-                                    <a href="#">[È­¹ý°ú ÀÛ¹®] ¿Á¼ö¼ö »ý»ê, ¼öÃâ Åë°èÀÚ·á p184</a>
+                                    <a href="#">[í™”ë²•ê³¼ ìž‘ë¬¸] ì˜¥ìˆ˜ìˆ˜ ìƒì‚°, ìˆ˜ì¶œ í†µê³„ìžë£Œ p184</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">ºñ¹®ÇÐ Å×½ºÆ®Áö - ´Ù¾çÇÑ È¯°æ¹®Á¦</a>
+                                    <a href="#">ë¹„ë¬¸í•™ í…ŒìŠ¤íŠ¸ì§€ - ë‹¤ì–‘í•œ í™˜ê²½ë¬¸ì œ</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">3¿ù ÇÐÆò´ëºñ ÇÑ±¹Áö¸® ÀûÁß Âî¶ó½Ã</a>
+                                    <a href="#">3ì›” í•™í‰ëŒ€ë¹„ í•œêµ­ì§€ë¦¬ ì ì¤‘ ì°Œë¼ì‹œ</a>
                                     <span>2021-09-21</span>
                                 </li>
                                 <li>
-                                    <a href="#">±¹¾î °øºÎ ÀÚ·á</a>
+                                    <a href="#">êµ­ì–´ ê³µë¶€ ìžë£Œ</a>
                                     <span>2021-09-21</span>
                                 </li>
                                
@@ -221,17 +272,17 @@
         </div>
         <div class="tab_content">
             <input type="radio" name="tabmenu" id="tab01" checked>
-            <label for="tab01" >ÀÌ¹ÌÁö Ä¿¸®Å§·³</label>
+            <label for="tab01" >ì´ë¯¸ì§€ ì»¤ë¦¬í˜ëŸ¼</label>
             <input type="radio" name="tabmenu" id="tab02">
-            <label for="tab02">¿µ»ó Ä¿¸®Å§·³</label>
+            <label for="tab02">ì˜ìƒ ì»¤ë¦¬í˜ëŸ¼</label>
             <input type="radio" name="tabmenu" id="tab03">
-            <label for="tab03">Ç¥ Ä¿¸®Å§·³</label>
+            <label for="tab03">í‘œ ì»¤ë¦¬í˜ëŸ¼</label>
     
-            <div class="conbox con1"><br><h2>ÀÌ¹ÌÁö Ä¿¸®Å§·³</h2><br><img src="img/sa1.PNG"></div>
-            <div class="conbox con2"><br><h2>¿µ»ó Ä¿¸®Å§·³</h2><br><iframe src="https://player.vimeo.com/video/31300341" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-            <div class="conbox con3"><br><h2>Ç¥ Ä¿¸®Å§·³</h2><br>
+            <div class="conbox con1"><br><h2>ì´ë¯¸ì§€ ì»¤ë¦¬í˜ëŸ¼</h2><br><img src="img/sa1.PNG"></div>
+            <div class="conbox con2"><br><h2>ì˜ìƒ ì»¤ë¦¬í˜ëŸ¼</h2><br><iframe src="https://player.vimeo.com/video/31300341" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+            <div class="conbox con3"><br><h2>í‘œ ì»¤ë¦¬í˜ëŸ¼</h2><br>
                 <table class="tbl">
-                    <caption>½Ã°£Ç¥¤·¤¤¤·¤¤¤·¤·¤±¤·¤·¤¤¤·</caption>
+                    <caption>ì‹œê°„í‘œã…‡ã„´ã…‡ã„´ã…‡ã…‡ã…ã…‡ã…‡ã„´ã…‡</caption>
                     <colgroup>
                         <col width="25%">
                         <col width="25%">
@@ -241,40 +292,40 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>È­¹ý°ú ÀÛ¹®</th>
-                            <th>¹®ÇÐ</th>
-                            <th>¾ð¾î¿Í ¸ÅÃ¼</th>
+                            <th>í™”ë²•ê³¼ ìž‘ë¬¸</th>
+                            <th>ë¬¸í•™</th>
+                            <th>ì–¸ì–´ì™€ ë§¤ì²´</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th>±â</th>                           
-                           <td colspan="3">EBS CLASS - ¼öÆ¯Æí</td>
+                            <th>ê¸°</th>                           
+                           <td colspan="3">EBS CLASS - ìˆ˜íŠ¹íŽ¸</td>
                         </tr>
                         <tr>
-                            <th>½Â</th>
-                            <td><a href="#pop2">±âÃâ·Î º¸´Â µ¶¼­</a></td>
+                            <th>ìŠ¹</th>
+                            <td><a href="#pop2">ê¸°ì¶œë¡œ ë³´ëŠ” ë…ì„œ</a></td>
                             <td>EBS</td>
-                            <td>¼ö´ÉÆ¯°­</td>
+                            <td>ìˆ˜ëŠ¥íŠ¹ê°•</td>
                         </tr>
                         <tr>
-                            <th>Àü</th>
-                            <td colspan="2"><a href="#pop2">½ÇÀü FINAL <img src="img/play.PNG"></a>
+                            <th>ì „</th>
+                            <td colspan="2"><a href="#pop2">ì‹¤ì „ FINAL <img src="img/play.PNG"></a>
                                 <div class="popup" id="pop2">
-                                    <a href="#a">´Ý±â</a>
-                                    <br><div class="pop_content"><h1>2022 ½ÇÀü FINAL</h1>
+                                    <a href="#a">ë‹«ê¸°</a>
+                                    <br><div class="pop_content"><h1>2022 ì‹¤ì „ FINAL</h1>
                                         <iframe src="https://player.vimeo.com/video/31300341" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                                     </div>
 
                                 </div>
                             </td>
-                            <td>¾ð¾î¿Í ¸ÅÃ¼ - the heart</td>
+                            <td>ì–¸ì–´ì™€ ë§¤ì²´ - the heart</td>
                         </tr>
                         <tr>
-                            <th>°á</th>
-                            <td>È­¹ý°ú ÀÛ¹® - È­ÀÛÀ» ¸»ÇÏ´Ù</td>
-                            <td colspan="2">½ÇÀü ¸ðÀÇ°í»ç</td>
+                            <th>ê²°</th>
+                            <td>í™”ë²•ê³¼ ìž‘ë¬¸ - í™”ìž‘ì„ ë§í•˜ë‹¤</td>
+                            <td colspan="2">ì‹¤ì „ ëª¨ì˜ê³ ì‚¬</td>
                            
                         </tr>
                     </tbody>
@@ -285,6 +336,9 @@
         <footer id="footer">
             Study Cafe
         </footer>
+        
     </section>
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

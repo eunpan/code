@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width-device-width", initial-scale="1">
 <link rel="stylesheet" href="./css/default.css">
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 <head>
     <meta charset="utf-8">
     <title>Study Cafe</title>
@@ -35,14 +35,14 @@
 
             <div class="inner">
                 <div class="logo_wrap">
-                    <h1><a href="./main.html">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
+                    <h1><a href="./main.jsp">Study Cafe<img src="img/logo.png" alt="It's LOGO" style="width=20px;height:30px;"></a>
                     </h1>
                 </div>
                 <nav class="nav">
                     <ul>
                         <li><a href="#">선생님</a>
                             <ul class="sub_menu">
-                                <li><a href="./teacher.html">OOO 선생님</a></li>
+                                <li><a href="./teacher.jsp">OOO 선생님</a></li>
                                 <li><a href="#">선생님_메뉴2</a></li>
                                 <li><a href="#">선생님_메뉴3</a></li>
                                 <li><a href="#">선생님_메뉴4</a></li>
@@ -53,11 +53,11 @@
                                                  
                         </li>
                         <li>
-                            <a href="./free_lecture.html">무료특강</a>
+                            <a href="./free_lecture.jsp">무료특강</a>
                                                  
 
                         </li>
-                        <li><a href="./information.html">입시 정보</a>
+                        <li><a href="./information.jsp">입시 정보</a>
                                                 
                         
                         </li>
@@ -161,7 +161,7 @@
                         <!-- button -->
                         <div class="btn_set btn_right">
                             <div class="btn btn_st_1">
-                                <a href="./te_write.html">글쓰기</a>
+                                <a href="./te_write.jsp">글쓰기</a>
                             </div>
                         </div>
 

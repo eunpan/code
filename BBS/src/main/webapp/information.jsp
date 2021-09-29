@@ -1,27 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-<meta charset="UTF-8">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width-device-width", initial-scale="1">
+<link rel="stylesheet" href="./css/default.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 <title>Study cafe</title>
 
-<link rel="stylesheet" href="./css/normalize.css">
-<link rel="stylesheet" href="./css/default.css">
+
 
 <script src="./js/jquery-1.10.2.min.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/scroll_menu.js"></script>
 </head>
 <body>
+<%
+String userID = null;
+if(session.getAttribute("userID") != null) {
+	 userID = (String) session.getAttribute("userID");
+}
+%>
     <header id="header">
-        <a id="d-day">¼ö´É OÀÏ ³²¾Ò½À´Ï´Ù.</a>
+        <a id="d-day">ìˆ˜ëŠ¥ Oì¼ ë‚¨ì•˜ìŠµë‹ˆë‹¤.</a>
 
-        <!-- ·Î±×ÀÎ -->
-        <div class="login"><a href="#">·Î±×ÀÎ</a></div>
-        <div class="membership"><a href="./membertype.jsp">È¸¿ø°¡ÀÔ</a></div>
-        <div class="shop"><a href="#">Àå¹Ù±¸´Ï</a></div>
+        
 
         <div class="inner">
             <div class="logo_wrap">
@@ -30,24 +35,24 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a href="#">¼±»ý´Ô</a>
+                    <li><a href="#">ì„ ìƒë‹˜</a>
                         <ul class="sub_menu">
-                            <li><a href="#">¼±»ý´Ô_¸Þ´º1</a></li>
-                            <li><a href="#">¼±»ý´Ô_¸Þ´º2</a></li>
-                            <li><a href="#">¼±»ý´Ô_¸Þ´º3</a></li>
-                            <li><a href="#">¼±»ý´Ô_¸Þ´º4</a></li>
+                            <li><a href="./teacher.jsp">OOO ì„ ìƒë‹˜</a></li>
+                            <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´2</a></li>
+                            <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´3</a></li>
+                            <li><a href="#">ì„ ìƒë‹˜_ë©”ë‰´4</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="./test_answer.jsp">Ä¿¹Â´ÏÆ¼</a>
+                    <li><a href="./test_answer.jsp">ì»¤ë®¤ë‹ˆí‹°</a>
                                                
                     </li>
                     <li>
-                        <a href="./free_lecture.jsp">¹«·áÆ¯°­</a>
+                        <a href="./free_lecture.jsp">ë¬´ë£ŒíŠ¹ê°•</a>
                                              
 
                     </li>
-                    <li><a href="./information.jsp">ÀÔ½Ã Á¤º¸</a>
+                    <li><a href="./information.jsp">ìž…ì‹œ ì •ë³´</a>
                                                
                     
                     </li>
@@ -55,36 +60,80 @@
             </nav>
         </div>
     </header>
-
-    <main id="container">
-    <img src="./img/abc.png">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+			aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>	
+			<span class="icon-bar"></span>		
+		</button>
+		
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+	 	<%
+	 		if(userID ==null) {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="login.jsp">ë¡œê·¸ì¸</a></li>
+					<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+				</ul>
+			</li>
+		</ul>
+		<%
+	 		} else {
+	 	%>
+	 	<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">íšŒì›ê´€ë¦¬<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="active"><a href="logoutAction.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	 	<%
+	 		}
+		%>
+    </div>
+    <main style="text-align:center;">
+    	<img src="./img/abc.PNG">
     </main>
 <header class="page-header" role="banner">
-    <div id="inner2">
+    <div id="infor_nav_inner">
         <h1 class="site-logo"><a href="./"><img src="./img/logo2.png" alt="logo"></a></h1>
         <nav class="primary-nav" role="navigation">
-            <ul id="img22">
-                <li class="on"><a href="#tabcont1">»çÀü¿¹¾à ÇÏ¸é ¼±¹° 100%</a></li>
-                <li><a href="#tabcont2">¸ðÀÇ°í»ç ÈÄ ²ÜÆÁ</a></li>
-                <li><a href="#tabcont3">2ÇÐ±â ÇÃ·¡³Ê</a></li>
-                <li><a href="#tabcont4">LIVE ¼³¸íÈ¸</a></li>
-
+            <ul id="infor_nav_img">   	
+                <li class="on"><a href="#tabcont1">ì‚¬ì „ì˜ˆì•½ í•˜ë©´ ì„ ë¬¼ 100%</a></li>
+                <li><a href="#tabcont2">ëª¨ì˜ê³ ì‚¬ í›„ ê¿€íŒ</a></li>
+                <li><a href="#tabcont3">2í•™ê¸° í”Œëž˜ë„ˆ</a></li>
+                <li><a href="#tabcont4">LIVE ì„¤ëª…íšŒ</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<div id="container">
-
+<div style="text-align:center;">
+	<br>
     <div id="tabcont1"><img src="./img/tab1conta.png"></div>
     <div id="tabcont2"><img src="./img/tab2cont.jpg"></div>
     <div class="tabcont3"><img src="./img/tab3cont.jpg"></div>
     <div class="tabcont4"><img src="./img/tab4cont.jpg"></div>
-    <img src="./img/tab4cont2.png">
+    <img src="./img/tab4cont2.PNG">
 </div>
 
 <footer id="footer">
     Study Cafe
 </footer>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

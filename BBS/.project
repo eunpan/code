@@ -45,9 +45,14 @@
 			<locationURI>PARENT-3-PROJECT_LOC/Desktop/%EA%B8%B0%EB%9F%AC%EA%B8%B0/write.jsp</locationURI>
 		</link>
 		<link>
-			<name>src/main/webapp/write2.jsp</name>
+			<name>src/main/webapp/deadjsp/write2.jsp</name>
 			<type>1</type>
 			<locationURI>PARENT-3-PROJECT_LOC/Desktop/write2.jsp</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/img/block.PNG</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Desktop/block.PNG</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

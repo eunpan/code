@@ -29,7 +29,7 @@
                     <ul>
                         <li><a href="#">¼±»ý´Ô</a>
                             <ul class="sub_menu">
-                                <li><a href="#">¼±»ý´Ô_¸Þ´º1</a></li>
+                                <li><a href="./teacher.jsp">OOO ¼±»ý´Ô</a></li>
                                 <li><a href="#">¼±»ý´Ô_¸Þ´º2</a></li>
                                 <li><a href="#">¼±»ý´Ô_¸Þ´º3</a></li>
                                 <li><a href="#">¼±»ý´Ô_¸Þ´º4</a></li>
