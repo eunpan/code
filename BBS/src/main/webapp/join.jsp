@@ -11,9 +11,6 @@
 </head>
 <body>
 	<header id="header">
-            <a id="d-day">수능 O일 남았습니다.</a>
-
-      
 
             <div class="inner">
                 <div class="logo_wrap">
@@ -55,7 +52,6 @@
 			<span class="icon-bar"></span>	
 			<span class="icon-bar"></span>		
 		</button>
-		
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
