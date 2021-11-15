@@ -10,9 +10,6 @@
 </head>
 <body>
 	<header id="header">
-            <a id="d-day">수능 O일 남았습니다.</a>
-
-            
 
             <div class="inner">
                 <div class="logo_wrap">

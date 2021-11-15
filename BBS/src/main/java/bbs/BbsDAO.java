@@ -23,6 +23,8 @@ public class BbsDAO {
 		}
 	}
 	
+
+	
 	public String getDate() {
 		String SQL = "SELECT NOW()";
 		try {

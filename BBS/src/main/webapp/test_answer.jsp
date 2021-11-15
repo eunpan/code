@@ -29,9 +29,6 @@
 %>
     <section id="wrapper">
         <header id="header">
-            <a id="d-day">수능 O일 남았습니다.</a>
-
-            
 
             <div class="inner">
                 <div class="logo_wrap">
@@ -117,7 +114,7 @@
                     <strong>커뮤니티</strong>
                     <p>자유롭게 글을 써주세요.</p>
                 </div>
-                <div class="total_number">총 게시물 : <strong>100</strong>개</div>
+                <!-- <div class="total_number">총 게시물 : <strong>100</strong>개</div> -->
                 <form action="">
                     
                         
@@ -136,7 +133,7 @@
                                         <th scope="col">NO</th>
                                         <th scope="col">제목</th>
                                         <th scope="col">작성자</th>
-                                        <th scope="col">등록일</th>    
+                                        <th scope="col">         등록일</th>    
                                     </tr>
                                 </thead>
                                 <tbody>

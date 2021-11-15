@@ -441,17 +441,21 @@
     margin-bottom: 27px;
 }
 /* 푸터 */
-#footer {
-    clear: both;
-    height: 100px;
-    background-color: #808080;
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#footer {
+     	position:fixed; 
+        left:0px; 
+       	bottom:0px; 
+        height:100px; 
+        width:100%; 
+        font-size: 20px;
+        font-weight: bold;
+        background-color:#808080;
+        color: #000; 
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
 
 }
 /* 예전푸터

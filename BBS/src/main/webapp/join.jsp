@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width-device-width", initial-scale="1">
+<!-- <meta name="viewport" content="width-device-width", initial-scale="1"> -->
 <link rel="stylesheet" href="./css/default.css">
 <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 <title>Study Cafe</title>
@@ -87,12 +87,13 @@
 					</div>
 					<div class="form-group" style="text-align : center;">
 						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-primary active" style="right:50px; top:50px;">
+							<label class="btn btn-primary active" style="top:88px; width:100px; right:10px;">
 								<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
 							</label>
-							<label class="btn btn-primary" style="left:80px; top:50px;">
+							<label class="btn btn-primary" style="left:120px; margin-top:8px; width:100px;">
 								<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
 							</label>
+							  
 						</div>					
 					</div>
 					<div class="form-group">

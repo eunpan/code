@@ -24,9 +24,6 @@ if(session.getAttribute("userID") != null) {
 }
 %>
     <header id="header">
-        <a id="d-day">수능 O일 남았습니다.</a>
-
-        
 
         <div class="inner">
             <div class="logo_wrap">
@@ -107,26 +104,26 @@ if(session.getAttribute("userID") != null) {
     <main style="text-align:center;">
     	<img src="./img/abc.PNG">
     </main>
-<header class="page-header" role="banner">
-    <div id="infor_nav_inner">
-        <h1 class="site-logo"><a href="./"><img src="./img/logo2.png" alt="logo"></a></h1>
-        <nav class="primary-nav" role="navigation">
-            <ul id="infor_nav_img">   	
-                <li class="on"><a href="#tabcont1">사전예약 하면 선물 100%</a></li>
-                <li><a href="#tabcont2">모의고사 후 꿀팁</a></li>
-                <li><a href="#tabcont3">2학기 플래너</a></li>
-                <li><a href="#tabcont4">LIVE 설명회</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<nav class="sideBanner" role="navigation">
+            <span class="txt-label">
+                <div class="h_area">
+                    <strong>리모콘</strong>
+                </div>
+                <ul id="img22">
+                    <li class="on"><a href="#tabcont1">사전예약 하면 선물 100%</a></li><br>
+                    <li><a href="#tabcont2">모의고사 후 꿀팁</a></li><br>
+                    <li><a href="#tabcont3">2학기 플래너</a></li><br>
+                    <li><a href="#tabcont4">LIVE 설명회</a></li>
+                </ul>
+            </span>
+</nav>
 
 <div style="text-align:center;">
 	<br>
     <div id="tabcont1"><img src="./img/tab1conta.png"></div>
     <div id="tabcont2"><img src="./img/tab2cont.jpg"></div>
-    <div class="tabcont3"><img src="./img/tab3cont.jpg"></div>
-    <div class="tabcont4"><img src="./img/tab4cont.jpg"></div>
+    <div id="tabcont3"><img src="./img/tab3cont.jpg"></div>
+    <div id="tabcont4"><img src="./img/tab4cont.jpg"></div>
     <img src="./img/tab4cont2.PNG">
 </div>
 

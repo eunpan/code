@@ -8,3 +8,21 @@ h2 {
 div {
     font-family: 'Noto Serif KR', serif;
 }
+
+.sideBanner {
+    position: fixed;
+    width: 118px;
+    height: 200px;
+    top: 100px;
+    background-color: beige;
+    z-index: 1000;
+    cursor: move;
+    display: inline-block;
+    border: 1px solid #cbcbcb;
+}
+
+.h_area {
+    padding: 10px 0;
+    background: url(https://ssl.pstatic.net/static/comic/images/2012/remote_bg_t.gif) no-repeat;
+    text-align: center;
+}

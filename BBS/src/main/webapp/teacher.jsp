@@ -44,9 +44,6 @@ if(session.getAttribute("userID") != null) {
 %>
     <section id="wrapper">
         <header id="header">
-            <a id="d-day">수능 O일 남았습니다.</a>
-
-           
 
             <div class="inner">
                 <div class="logo_wrap">
@@ -139,7 +136,7 @@ if(session.getAttribute("userID") != null) {
                         <br>* 현) 하나투어 여행세계지리 강사
                         <br>* 전) EBS 지리영역 (2012 ~ 2014년)
                    </ul> 
-                   <ul>
+                   <!-- <ul>
 	                    <br><br><h2 style="color: royalblue; font-size: 20px;">저서</h2>
 	                    <br>* EBS 문학 개념완성
 	                    <br>* Power Training 화법과 작문 개념완성
@@ -151,11 +148,11 @@ if(session.getAttribute("userID") != null) {
                         <br>* 대치동 예섬학원
                         <br>* 대치동 우림학원
                         <br>* 청평 한샘 남학생 기숙학원
-                    </ul> 
+                    </ul>  -->
                 </div>
             </div>
             <div class="dim"></div>
-            <a href=""><img src="img/tea2.png" alt="선생님"></a>
+            <a><img src="img/tea2.png" alt="선생님"></a>
             <div id="idx_board_wrap">
                 <div>
                     <div class="idx_board">
