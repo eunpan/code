@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width-device-width", initial-scale="1">
 <link rel="stylesheet" href="./css/default.css">
+<link rel="stylesheet" href="./css/manager.css">
 <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 <title>Study Cafe</title>
 </head>
@@ -66,25 +67,52 @@
 			</li>
 		</ul>
 	</div>
-	<div class="container">
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" action="loginAction.jsp">
-					<h3 style="text-align: center;">로그인 화면</h3>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" placeholder="패스워드" name="userPassword" maxlength="20">
-					</div>
-					<input type="submit" class="btn btn-primary form-control" style="top: 40px;" value="로그인">
-				</form>
-			</div>
-			<a href="adminlogin.jsp"><h4 style="text-align: center;">혹시 관리자 이신가요?</h4></a>
-		</div>
-		<div class="col-lg-4"></div>
-	</div>
+	 <div class="manager_text0">
+        <h1>관리자님 안녕하세요</h1>
+        <div class="contents1">Study Cafe의 기능을 관리해보세요!</div>
+        
+        <ul class="icons">
+          <li>
+            <div class="icon_img">
+              <img src="image/icon2.svg">
+            </div>
+            <div class="contents1_bold">메인 페이지 편집</div>
+            <div class="contents2">
+                메인페이지를 편집합니다.
+            </div>
+            <div class="more">
+              MORE
+            </div>
+          </li>
+
+          <li>
+            <div class="icon_img">
+              <img src="image/icon0.svg">
+            </div>
+            <div class="contents1_bold">사용자 관리</div>
+            <div class="contents2">
+                사용자에 대한 전반적인 기능을 관리하고 보여줍니다.
+            </div>
+            <div class="more">
+              MORE
+            </div>
+          </li>
+
+          <li>
+            <div class="icon_img">
+              <img src="image/icon1.svg">
+            </div>
+            <div class="contents1_bold">게시판 관리</div>
+            <div class="contents2">
+                게시판에 대한 전반적인 기능을 관리하고 보여줍니다.
+            </div>
+            <div class="more">
+              MORE
+            </div>
+          </li>
+        </ul>
+      </div>
+	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	

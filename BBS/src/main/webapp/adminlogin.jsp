@@ -70,18 +70,18 @@
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" action="loginAction.jsp">
-					<h3 style="text-align: center;">로그인 화면</h3>
+				<form action="AdminLoginCheck.jsp">
+					<h3 style="text-align: center;">관리자 로그인</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
+						<input type="text" class="form-control" placeholder="사용자 이름" name="form_name" maxlength="20">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="패스워드" name="userPassword" maxlength="20">
+						<input type="password" class="form-control" placeholder="관리자 토큰" name="form_emp_id" maxlength="20">
 					</div>
 					<input type="submit" class="btn btn-primary form-control" style="top: 40px;" value="로그인">
 				</form>
 			</div>
-			<a href="adminlogin.jsp"><h4 style="text-align: center;">혹시 관리자 이신가요?</h4></a>
+			<a href="login.jsp"><h4 style="text-align: center;">혹시 사용자 이신가요?</h4></a>
 		</div>
 		<div class="col-lg-4"></div>
 	</div>
