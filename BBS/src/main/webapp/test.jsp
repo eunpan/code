@@ -96,9 +96,41 @@
 				<a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">회원관리<span class="caret"></span></a>
+			
 				<ul class="dropdown-menu">
 					<li class="active"><a href="logoutAction.jsp">로그아웃</a></li>
-					
+					<li><a data-toggle="modal" href="#reportModal">신고하기</a>
+						<div class="modal fade" id="reportModal" tabindex="-1" role="diaLog" aria-labelledby="modal" aria-hidden="true">
+                       		<div class="modal-diaLog">
+                       			<div class="modal-content">
+                       				<div class="modal-header">
+                       					<h5 class="modal-title" id="modal">신고하기</h5>
+                       					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       						<span aria-hidden="true">&times;</span>
+                       					</button>
+                       				</div>
+                       				<div class="modal-body">
+                       					
+	                       					<form method="post" action="./reportAction.jsp">
+	                       						<div class="form-group">
+	                     								<label>신고 제목</label>
+	                       								<input type="text" name="reportTitle" class="form-control" maxlength="20">
+	           									</div>
+	           									<div class="form-group">
+	                       								<label>내용</label>
+	                       								<input type="text" name="reportContent" class="form-control" maxlength="2048">
+	                       						</div>
+	                       						<div class="modal-footer">
+	                       							<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	                       							<button type="submit" class="btn btn-danger">신고하기</button>
+	                       						</div>
+	                       					</form>
+	                       				
+                       				</div>
+                       			</div>
+                       		</div>
+                       </div>
+					</li>
 				</ul>
 			</li>
 		</ul>
@@ -106,53 +138,7 @@
 	 		}
 		%>
 	</div>
-        <section id="container_board">
-
-            
-            <div class="contents_board">
-                <div class="board_title">
-                    <strong>커뮤니티</strong>
-                    <p>자유롭게 글을 써주세요.</p>
-                </div>
-                <!-- <div class="total_number">총 게시물 : <strong>100</strong>개</div> -->
-                <form action="">
-                    
-                        
-
-                        <!-- 리스트 -->
-                        <div class="board_list_ty1">
-                            <table summary="">
-                                
-                                <colgroup>
-                                    <col width="10%">
-                                    <col width="*">
-                                    <col width="15%">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">NO</th>
-                                        <th scope="col">제목</th>
-                                        <th scope="col">작성자</th>
-                                        <th scope="col">         등록일</th>    
-                                    </tr>
-                                </thead>
-                                <tbody>
-			                   <%
-									BbsDAO bbsDAO = new BbsDAO();
-									ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
-									for(int i = 0; i < list.size(); i++) {
-								%>
-								<tr>
-									<td><%= list.get(i).getBbsID() %></td>
-									<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>"><%= list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
-									<td><%= list.get(i).getUserID() %></td>
-									<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시 " + list.get(i).getBbsDate().substring(14, 16) + "분 "%></td>
-								</tr>
-								<%
-									}
-								%>
-                                </tbody>
-                            </table>
+        
                         </div>
 
                         <!-- button -->
@@ -173,13 +159,13 @@
                             <a href="#" class="next page"><img src="./img/btn_page_next.gif" alt="마지막페이지"></a>
                         </div>
 						<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-						<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="./report.jsp">신고하기</a>
+						<!-- <a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">신고하기</a> -->
                         <!-- 해시태그 -->
                         <div id="hash_tag">
                             <a href="#">열공하세요!</a>
                             
                         </div>
-<!--                        <div class="modal fade" id="reportModal" tabindex="-1" role="diaLog" aria-labelledby="modal" aria-hidden="true">
+                       <!-- <div class="modal fade" id="reportModal" tabindex="-1" role="diaLog" aria-labelledby="modal" aria-hidden="true">
                        		<div class="modal-diaLog">
                        			<div class="modal-content">
                        				<div class="modal-header">
